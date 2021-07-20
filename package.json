@@ -7,11 +7,16 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@vant/touch-emulator": "^1.2.0",
     "core-js": "^3.6.5",
+    "eruda": "^2.4.1",
+    "vant": "^3.0.14",
     "vue": "^3.0.0",
-    "vue-class-component": "^8.0.0-0",
+    "vue-class-component": "^8.0.0-rc.1",
+    "vue-property-decorator": "^10.0.0-rc.3",
     "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "vuex": "^4.0.0-0",
+    "wizjs": "https://github.com/jawa0919/wizjs#4745e39"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
