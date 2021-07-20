@@ -12,7 +12,7 @@
     <van-cell title="env" :label="envRes" @click="envTest" />
     <van-cell title="getSystemInfo" @click="getSystemInfoTest">
       <template v-slot:label>
-        <div>{{ getSystemInfoRes }}</div>
+        <div v-if="getSystemInfoRes.brand">{{ getSystemInfoRes }}</div>
       </template>
     </van-cell>
     <van-notice-bar scrollable :text="ua" />
@@ -22,7 +22,7 @@
 <script lang="ts">
 import { Notify } from "vant";
 import { Options, Vue } from "vue-class-component";
-import { test, env, isDebugSDK, getSystemInfo } from "wizjs";
+import { test, env, isDebugSDK, getSystemInfo, WizSystemInfo } from "wizjs";
 
 @Options({
   name: "Base",
@@ -32,7 +32,7 @@ export default class Base extends Vue {
   ua = "";
   testRes = "";
   envRes = "";
-  getSystemInfoRes = {};
+  getSystemInfoRes: WizSystemInfo = {} as WizSystemInfo;
 
   created(): void {
     console.log("Base created");
@@ -46,7 +46,7 @@ export default class Base extends Vue {
     test()
       .then(res => {
         console.log("res", res);
-        this.testRes = res.toString();
+        this.testRes = res;
       })
       .catch(err => {
         console.error("err", err);
@@ -57,7 +57,7 @@ export default class Base extends Vue {
     env()
       .then(res => {
         console.log("res", res);
-        this.envRes = res.toString();
+        this.envRes = res;
       })
       .catch(err => {
         console.error("err", err);
