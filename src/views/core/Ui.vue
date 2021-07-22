@@ -1,25 +1,30 @@
 <!--
- * @FilePath     : /wizjs_vue_example/src/views/core/Base.vue
- * @Date         : 2021-07-19 17:04:52
+ * @FilePath     : /wizjs_vue_example/src/views/core/Ui.vue
+ * @Date         : 2021-07-22 10:38:19
  * @Author       : wangjia <jawa0919@163.com>
- * @Description  : 基础
+ * @Description  : 界面
 -->
 
 <template>
-  <div class="Base page">
-    <AppBar title="基础" />
+  <div class="Ui page">
+    <AppBar title="界面" />
     <van-cell-group inset title="测试">
       <van-cell title="test" :label="testRes" @click="testTest" is-link />
     </van-cell-group>
-    <van-cell-group inset title="环境变量">
-      <van-cell title="env" :label="envRes" @click="envTest" is-link />
+    <van-cell-group inset title="停止当前页面下拉刷新">
+      <van-cell
+        center
+        title="stopPullDownRefresh"
+        @click="stopPullDownRefreshTest"
+        is-link
+      />
     </van-cell-group>
-    <van-cell-group inset title="获取系统信息">
-      <van-cell title="getSystemInfo" @click="getSystemInfoTest" is-link>
-        <template v-slot:label>
-          <div v-if="getSystemInfoRes.brand">{{ getSystemInfoRes }}</div>
-        </template>
-      </van-cell>
+    <van-cell-group inset title="开始下拉刷新。调用后触发下拉刷新动画">
+      <van-cell
+        title="startPullDownRefresh"
+        @click="startPullDownRefreshTest"
+        is-link
+      />
     </van-cell-group>
   </div>
 </template>
@@ -29,17 +34,20 @@ import { useRouter } from "vue-router";
 import { Notify } from "vant";
 import { Options, Vue } from "vue-class-component";
 import AppBar from "@/components/AppBar.vue";
-import { test, env, isDebugSDK, getSystemInfo, WizSystemInfo } from "wizjs";
+import {
+  test,
+  stopPullDownRefresh,
+  startPullDownRefresh,
+  isDebugSDK
+} from "wizjs";
 
-@Options({ name: "Base", components: { AppBar } })
-export default class Base extends Vue {
+@Options({ name: "Ui", components: { AppBar } })
+export default class Ui extends Vue {
   router = useRouter();
   testRes = "";
-  envRes = "";
-  getSystemInfoRes: WizSystemInfo = {} as WizSystemInfo;
 
   created(): void {
-    console.log("Base created");
+    console.log("Ui created");
     console.log("" + isDebugSDK());
   }
 
@@ -54,22 +62,20 @@ export default class Base extends Vue {
         Notify({ type: "danger", message: err });
       });
   }
-  envTest() {
-    env()
+  stopPullDownRefreshTest(): void {
+    stopPullDownRefresh()
       .then(res => {
         console.log("res", res);
-        this.envRes = res;
       })
       .catch(err => {
         console.error("err", err);
         Notify({ type: "danger", message: err });
       });
   }
-  getSystemInfoTest() {
-    getSystemInfo()
+  startPullDownRefreshTest(): void {
+    startPullDownRefresh()
       .then(res => {
         console.log("res", res);
-        this.getSystemInfoRes = res;
       })
       .catch(err => {
         console.error("err", err);

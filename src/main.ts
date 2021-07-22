@@ -17,6 +17,10 @@ if (process.env.NODE_ENV === "development") {
   }
 }
 
+// WizJs测试
+import { debugMode } from "wizjs";
+debugMode();
+
 createApp(App)
   .use(store)
   .use(router)

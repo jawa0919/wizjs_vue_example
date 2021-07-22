@@ -9,4 +9,8 @@
   -moz-osx-font-smoothing: grayscale;
   background-color: #f4f4f4;
 }
+
+.page {
+  min-height: 100vh;
+}
 </style>
