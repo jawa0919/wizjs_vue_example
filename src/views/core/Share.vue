@@ -1,7 +1,7 @@
 <!--
  * @FilePath     : /wizjs_vue_example/src/views/core/Share.vue
- * @Date         : 2021-07-22 10:38:19
- * @Author       : wangjia <jawa0919@163.com>
+ * @Date         : 2021-07-22 10:45:25
+ * @Author       : jawa0919 <jawa0919@163.com>
  * @Description  : 跳转
 -->
 

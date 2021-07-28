@@ -1,15 +1,15 @@
 <!--
  * @FilePath     : /wizjs_vue_example/src/views/core/Route.vue
  * @Date         : 2021-07-21 10:15:41
- * @Author       : wangjia <jawa0919@163.com>
+ * @Author       : jawa0919 <jawa0919@163.com>
  * @Description  : 路由
 -->
 
 <template>
   <div class="Route page">
     <AppBar title="路由" />
-    <van-cell-group inset title="url">
-      <van-field v-model="url" placeholder="请输入url" />
+    <van-cell-group inset title="请输入url">
+      <van-field autofocus v-model="url" placeholder="请输入url" />
     </van-cell-group>
     <van-cell-group inset title="关闭所有页面，打开到应用内的某个页面">
       <van-cell title="reLaunch" @click="reLaunchTest" is-link />

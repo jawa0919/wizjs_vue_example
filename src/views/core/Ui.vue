@@ -1,19 +1,15 @@
 <!--
  * @FilePath     : /wizjs_vue_example/src/views/core/Ui.vue
- * @Date         : 2021-07-22 10:38:19
- * @Author       : wangjia <jawa0919@163.com>
+ * @Date         : 2021-07-22 11:05:25
+ * @Author       : jawa0919 <jawa0919@163.com>
  * @Description  : 界面
 -->
 
 <template>
   <div class="Ui page">
     <AppBar title="界面" />
-    <van-cell-group inset title="测试">
-      <van-cell title="test" :label="testRes" @click="testTest" is-link />
-    </van-cell-group>
     <van-cell-group inset title="停止当前页面下拉刷新">
       <van-cell
-        center
         title="stopPullDownRefresh"
         @click="stopPullDownRefreshTest"
         is-link
@@ -44,24 +40,12 @@ import {
 @Options({ name: "Ui", components: { AppBar } })
 export default class Ui extends Vue {
   router = useRouter();
-  testRes = "";
 
   created(): void {
     console.log("Ui created");
     console.log("" + isDebugSDK());
   }
 
-  testTest(): void {
-    test()
-      .then(res => {
-        console.log("res", res);
-        this.testRes = res;
-      })
-      .catch(err => {
-        console.error("err", err);
-        Notify({ type: "danger", message: err });
-      });
-  }
   stopPullDownRefreshTest(): void {
     stopPullDownRefresh()
       .then(res => {

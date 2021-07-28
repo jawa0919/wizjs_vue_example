@@ -3,6 +3,8 @@
     class="NavBar"
     v-if="isShowNavBar"
     placeholder
+    fixed
+    z-index="100"
     safe-area-inset-top
     :left-arrow="isShowNavBar && isShowNavBack"
     @click-left="clickLeft"

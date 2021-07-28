@@ -8,8 +8,13 @@
 <template>
   <div class="Media page">
     <AppBar title="媒体" />
-    <van-cell-group inset title="测试">
-      <van-cell title="test" :label="testRes" @click="testTest" is-link />
+    <van-cell-group inset title="图片">
+      <van-cell
+        title="chooseImage"
+        :label="imageRes"
+        @click="chooseImageTest"
+        is-link
+      />
     </van-cell-group>
   </div>
 </template>
@@ -19,23 +24,23 @@ import { useRouter } from "vue-router";
 import { Notify } from "vant";
 import { Options, Vue } from "vue-class-component";
 import AppBar from "@/components/AppBar.vue";
-import { test, isDebugSDK } from "wizjs";
+import { isDebugSDK, chooseImage } from "wizjs";
 
 @Options({ name: "Media", components: { AppBar } })
 export default class Media extends Vue {
   router = useRouter();
-  testRes = "";
+  imageRes = "";
 
   created(): void {
     console.log("Media created");
     console.log("" + isDebugSDK());
   }
 
-  testTest(): void {
-    test()
+  chooseImageTest(): void {
+    chooseImage()
       .then(res => {
         console.log("res", res);
-        this.testRes = res;
+        this.imageRes = res.pop()?.path ?? "";
       })
       .catch(err => {
         console.error("err", err);

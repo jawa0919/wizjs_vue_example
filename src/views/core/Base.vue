@@ -1,7 +1,7 @@
 <!--
  * @FilePath     : /wizjs_vue_example/src/views/core/Base.vue
- * @Date         : 2021-07-19 17:04:52
- * @Author       : wangjia <jawa0919@163.com>
+ * @Date         : 2021-07-20 17:13:20
+ * @Author       : jawa0919 <jawa0919@163.com>
  * @Description  : 基础
 -->
 

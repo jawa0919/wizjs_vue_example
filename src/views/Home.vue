@@ -35,8 +35,11 @@ export default class Home extends Vue {
 </script>
 
 <style>
+.home {
+  padding: 16px 0;
+}
 .home-title {
   display: inline-block;
-  margin: 32px;
+  margin: 0 32px;
 }
 </style>
