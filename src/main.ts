@@ -7,6 +7,12 @@ import store from "./store";
 import Vant from "vant";
 import "vant/lib/index.css";
 import "@vant/touch-emulator";
+import { Toast, Notify, Dialog } from "vant";
+
+// 全局vxe-table组件库
+import "xe-utils";
+import VXETable from "vxe-table";
+import "vxe-table/lib/style.css";
 
 // 移动端日志打印
 import eruda from "eruda";
@@ -25,4 +31,8 @@ createApp(App)
   .use(store)
   .use(router)
   .use(Vant)
+  .use(Toast)
+  .use(Notify)
+  .use(Dialog)
+  .use(VXETable)
   .mount("#app");

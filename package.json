@@ -16,7 +16,9 @@
     "vue-property-decorator": "^10.0.0-rc.3",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0",
-    "wizjs": "file:./../wizjs/"
+    "vxe-table": "^4.0.24",
+    "wizjs": "file:./../wizjs/",
+    "xe-utils": "^3.3.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
