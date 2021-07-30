@@ -8,7 +8,11 @@
 <template>
   <div class="Storage page">
     <AppBar title="数据缓存" />
-    <van-field label="文本" v-model="storageRes" placeholder="请输入storage" />
+    <van-field
+      label="数据文本"
+      v-model="storageRes"
+      placeholder="请输入storage"
+    />
     <van-cell-group inset title="将数据存储在本地缓存中指定的 key 中">
       <van-cell title="setStorage" @click="setStorageTest" is-link />
     </van-cell-group>
@@ -134,3 +138,9 @@ export default class Storage extends Vue {
   }
 }
 </script>
+
+<style>
+.Storage {
+  padding-bottom: 16px;
+}
+</style>
