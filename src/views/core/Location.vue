@@ -8,8 +8,15 @@
 <template>
   <div class="Location page">
     <AppBar title="位置" />
-    <van-cell-group inset title="测试">
-      <van-cell title="test" :label="testRes" @click="testTest" is-link />
+    <van-cell-group inset title="获取定位信息">
+      <van-button block @click="getLocationTest" text="getLocation" />
+    </van-cell-group>
+    <van-cell-group v-if="locationRes.latitude" inset title=" ">
+      <van-cell title="locationRes" is-link>
+        <template v-slot:label>
+          <div v-if="locationRes.latitude">{{ locationRes }}</div>
+        </template>
+      </van-cell>
     </van-cell-group>
   </div>
 </template>
@@ -19,23 +26,23 @@ import { useRouter } from "vue-router";
 import { Notify } from "vant";
 import { Options, Vue } from "vue-class-component";
 import AppBar from "@/components/AppBar.vue";
-import { test, isDebugSDK } from "wizjs";
+import { getLocation, isDebugSDK } from "wizjs";
 
 @Options({ name: "Location", components: { AppBar } })
 export default class Location extends Vue {
   router = useRouter();
-  testRes = "";
+  locationRes = {};
 
   created(): void {
     console.log("Location created");
     console.log("" + isDebugSDK());
   }
 
-  testTest(): void {
-    test()
+  getLocationTest(): void {
+    getLocation()
       .then(res => {
         console.log("res", res);
-        this.testRes = res;
+        this.locationRes = res;
       })
       .catch(err => {
         console.error("err", err);

@@ -41,7 +41,6 @@ import { Notify, Toast } from "vant";
 import { Options, Vue } from "vue-class-component";
 import AppBar from "@/components/AppBar.vue";
 import {
-  test,
   setStorage,
   isDebugSDK,
   navigateTo,
@@ -62,17 +61,6 @@ export default class Storage extends Vue {
     console.log("" + isDebugSDK());
   }
 
-  testTest(): void {
-    test()
-      .then(res => {
-        console.log("res", res);
-        this.testRes = res;
-      })
-      .catch(err => {
-        console.error("err", err);
-        Notify({ type: "danger", message: err });
-      });
-  }
   setStorageTest(): void {
     setStorage("storageInput", this.storageRes)
       .then(res => {

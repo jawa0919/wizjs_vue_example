@@ -30,12 +30,7 @@ import { useRouter } from "vue-router";
 import { Notify } from "vant";
 import { Options, Vue } from "vue-class-component";
 import AppBar from "@/components/AppBar.vue";
-import {
-  test,
-  stopPullDownRefresh,
-  startPullDownRefresh,
-  isDebugSDK
-} from "wizjs";
+import { stopPullDownRefresh, startPullDownRefresh, isDebugSDK } from "wizjs";
 
 @Options({ name: "Ui", components: { AppBar } })
 export default class Ui extends Vue {
