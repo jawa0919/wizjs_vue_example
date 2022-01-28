@@ -86,7 +86,7 @@ export default class File extends Vue {
     saveFile(`${this.rootPath}/a.txt`)
       .then(res => {
         console.log("res", res);
-        this.saveFilePath = res.savedFilePath;
+        this.saveFilePath = res;
       })
       .catch(err => {
         console.error("err", err);
